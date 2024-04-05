@@ -27,7 +27,7 @@ h2 {
   margin: 0;
 }
 
-#tlacitko {
+.tlacitko {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 23px;
@@ -41,7 +41,7 @@ h2 {
   margin-top: var(--margin_top);
 }
 
-#tlacitko:hover {
+.tlacitko:hover {
   background-color: #0056b3;
 }
 
@@ -51,6 +51,8 @@ body {
 }
 
 .sekce {
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -62,6 +64,7 @@ body {
   padding: var(--padding_text_section);
   padding-top: var(--padding_text_section_top_down);
   padding-bottom: var(--padding_text_section_top_down);
+  background-color: rgb(177, 177, 177);
 }
 
 .container {

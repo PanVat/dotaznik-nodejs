@@ -15,13 +15,42 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Webová anketa!'
+        title: 'Webová anketa'
     });
 });
+
+app.post("/submit", (req, res) => {
+    // Zde budeme ukládat data z formuláře do souboru responses.json
+    const newResponse = {
+      id: Date.now(), // Jednoduchý způsob, jak generovat unikátní ID
+      timestamp: new Date().toISOString(),
+      answers: req.body, // Předpokládáme, že všechny odpovědi jsou ve formátu, který chceme uložit
+    };
+  
+    // Čtení stávajících dat z souboru
+    fs.readFile("responses.json", (err, data) => {
+      if (err) throw err;
+      let json = JSON.parse(data);
+      json.push(newResponse);
+  
+      // Zápis aktualizovaných dat zpět do souboru
+      fs.writeFile("responses.json", JSON.stringify(json, null, 2), (err) => {
+        if (err) throw err;
+        console.log("Data byla úspěšně uložena.");
+        res.redirect("/results"); // Přesměrování na stránku s výsledky
+      });
+    });
+  });
 
 app.get('/anketa', (req, res) => {
     res.render('anketa', {
         title: 'Anketa o hrách'
+    });
+});
+
+app.get('/index', (req, res) => {
+    res.render('index', {
+        title: 'Domovská stránka'
     });
 });
 

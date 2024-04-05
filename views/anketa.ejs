@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="cz">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style_anketa.css">
     <title>Dotazník</title>
 </head>
-<body>
-    <h1>Dotazník</h1>
 
-    <div>
-        <label>Vyberte si jednu hru:</label>
-        <select name="Otazka1" id="Otazka1">
-            <option value="minecraft">Minecraft</option>
-            <option value="minecraft">Minecraft</option>
-            <option value="minecraft">Minecraft</option>
-            <option value="minecraft">Minecraft</option>
-            <option value="minecraft">Minecraft</option>
-        </select>
+<body>
+    <h1>Webový dotazník</h1>
+    <h2>Anketa o videohrách</h2>
+    <form action="/submit" method="post" class="sekce">
+        <div>
+            <label>Zajímají vás videohry?</label>
+            <select id="zajem" name="zajem">
+                <option value="ano">ANO</option>
+                <option value="ne">NE</option>
+                <option value="nevim">NEVÍM</option>
+            </select>
+        </div>
+        <!-- Čas, kolik hodin denně stráví uživatel hraním videoher -->
+        <div>
+            <label for="hours">Kolik hodin trávíte denně hraním videoher?</label>
+            <input type="number" step="0.1" id="hours" name="hours" required>
+        </div>
+        <div>
+            <label>Jaký je váš oblíbený herní žánr?</label>
+            <select id="zanr" name="zanr">
+                <option value="akcni-hry">Akční hry</option>
+                <option value="arkadove-hry">Arkádové hry</option>
+                <option value="rpg">RPG</option>
+                <option value="plosinove-hry">Plošinové hry</option>
+                <option value="strategicke-hry">Strategické hry</option>
+                <option value="zavodni-hry">Závodní hry</option>
+                <option value="sportovni-hry">Sportovní hry</option>
+                <option value="hororove-hry">Hororové hry</option>
+                <option value="puzzle-hry">Puzzle hry</option>
+                <option value="adventury">Adventury</option>
+            </select>
+        </div>
+        <!-- Zadání názvu oblíbené videohry uživatele -->
+        <div>
+            <label for="oblibena-hra">Zadej název své oblíbené hry:</label>
+            <input type="text" name="oblibena-hra" id="oblibena-hra">
+        </div>
+        <div>
+            <label for="protagonista">Oblíbený herní protagonista:</label>
+            <input type="text" id="protagonista" name="protagonista">
+        </div>
+        <div>
+            <label for="antagonista">Oblíbený herní antagonista:</label>
+            <input type="text" id="antagonista" name="antagonista">
+        </div>
+        <div>
+            <button type="submit">Odeslat odpovědi</button>
+        </div>
+    </form>
+    <div class="container">
+        <a href="/index" class="tlacitko">Domovská stránka</a>
+        <a href="/results" class="tlacitko">Výsledky dotazníku</a>
     </div>
+    <footer>
+        &copy; 2024 Filip Podeszwa, IT2 - projekt do předmětu PVY
+    </footer>
 </body>
+
 </html>
