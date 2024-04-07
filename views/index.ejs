@@ -1,44 +1,79 @@
 <!DOCTYPE html>
-<html lang="cz">
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Webový dotazník</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style_index.css" />
-  <title>Webový dotazník</title>
-</head>
+  <body>
+    <%- include('blocks/header'); -%>
+    <div class="sekce-uvod">
+      <h3>Vítejte na mém webovém dotazníku!</h3>
+      Jsem nadšený, že jste se rozhodli podělit se se všemi o Vaše názory a
+      preference ohledně <strong>videoher a herních sérií</strong>. Tento
+      dotazník je určen <strong>všem hráčům</strong>. Nemusíte být
+      profesionálním hráčem, abyste se mohli zapojit! Všechny odpovědi
+      <strong>jsou vítány</strong>, ať už jste casual hráč, nadšený fanoušek
+      nebo jen občasný zájemce o videohry.
+      <p>
+        Děkuji Vám, že jste si našli čas na vyplnění tohoto dotazníku.
+        <strong>Vašich názorů si převelice vážím!</strong>
+      </p>
+    </div>
+    <div class="sekce-dotaznik">
+      <form action="/submit" method="post">
+        <div>
+          <label for="zajem">Zajímají vás videohry?</label>
+          <select id="zajem" name="zajem">
+            <option value="ANO">ANO</option>
+            <option value="NE">NE</option>
+            <option value="NEVÍM">NEVÍM</option>
+          </select>
+        </div>
 
-<body>
-  <h1>Webový dotazník</h1>
-  <h2>Anketa o videohrách</h2>
-  <div class="sekce">
-    <h3>
-      Vítejte na mém webovém dotazníku!
-    </h3>
-    <p>
-      Jsem nadšený, že jste se rozhodli podělit se se všemi o vaše názory a preference ohledně videoher a herních sérií.
-      Tento dotazník je určen všem hráčům, kteří chtějí sdílet své zážitky, upřednostňované žánry a oblíbené herní
-      tituly.
-    </p>
-    <p>
-      Dotazník obsahuje různorodé otázky, které se týkají vašich herních
-      zážitků, oblíbených žánrů, nejlepších herních sérií a mnoho dalšího.
-    </p>
-    <p>
-      Nemusíte být profesionálním hráčem, abyste se mohli zapojit! Všechny odpovědi jsou vítány, ať už jste casual hráč,
-      nadšený fanoušek nebo jen občasný zájemce o videohry.
-    </p>
-    <p>
-      Děkuji vám, že jste si našli čas na vyplnění tohoto dotazníku. Vašich názorů si převelice vážím!
-    </p>
-  </div>
-  <div class="container">
-    <a href="/anketa" class="tlacitko">Spustit dotazník</a>
-    <a href="/results" class="tlacitko">Výsledky dotazníku</a>
-  </div>
-  <footer>
-    &copy; 2024 Filip Podeszwa, IT2 - projekt do předmětu PVY
-  </footer>
-</body>
+        <!-- Čas, kolik hodin denně stráví uživatel hraním videoher -->
+        <div>
+          <label for="hours">Kolik hodin trávíte denně hraním videoher?</label>
+          <input type="number" step="0.1" id="hours" name="hours" required />
+        </div>
 
+        <div>
+          <label for="zanr">Jaký je váš oblíbený herní žánr?</label>
+          <select id="zanr" name="zanr">
+            <option value="Akční">Akční hry</option>
+            <option value="Arkádové">Arkádové hry</option>
+            <option value="RPG">RPG</option>
+            <option value="Plošinové">Plošinové hry</option>
+            <option value="Strategické">Strategické hry</option>
+            <option value="Závodní">Závodní hry</option>
+            <option value="Sportovní">Sportovní hry</option>
+            <option value="Hororové">Hororové hry</option>
+            <option value="Puzzle">Puzzle hry</option>
+            <option value="Dobrodružné">Adventury</option>
+            <option value="Nehraji videohry">Nehraji videohry</option>
+          </select>
+        </div>
+        <!-- Zadání názvu oblíbené videohry uživatele -->
+        <div>
+          <label for="oblibenaHra">Zadejte název své oblíbené videohry:</label>
+          <input type="text" name="oblibenaHra" id="oblibenaHra" />
+        </div>
+
+        <div>
+          <label for="protagonista">Oblíbený herní protagonista:</label>
+          <input type="text" id="protagonista" name="protagonista" />
+        </div>
+
+        <div>
+          <label for="antagonista">Oblíbený herní antagonista:</label>
+          <input type="text" id="antagonista" name="antagonista" />
+        </div>
+
+        <button type="submit">Odeslat odpovědi</button>
+      </form>
+    </div>
+    <%- include('blocks/footer'); -%>
+  </body>
 </html>

@@ -1,0 +1,170 @@
+/* Konstanty hodnot, které se zde objevují vícekrát */
+:root {
+  --margin_left: 20px;
+  --margin_right: 20px;
+  --margin_top: 20px;
+  --padding_text_section: 15px;
+  --padding_text_section_top_down: var(--padding_text_section) / 2;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 45px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin: 0;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  background-color: rgb(255, 217, 0);
+  padding: 10px;
+  margin: 0;
+}
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+body {
+  text-align: center;
+  background-color: rgb(209, 209, 209);
+  flex-direction: column; /* Nebo flex-direction: row; */
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(209, 209, 209);
+  margin: 0;
+}
+
+.sekce-uvod {
+  width: 75%;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-left: var(--margin_left);
+  margin-right: var(--margin_right);
+  margin-top: var(--margin_top);
+  display: inline-block;
+  padding: var(--padding_text_section);
+  padding-top: var(--padding_text_section_top_down);
+  padding-bottom: var(--padding_text_section_top_down);
+  background-color: rgb(177, 177, 177);
+}
+
+.sekce-dotaznik {
+  width: 30%;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 50px;
+  display: inline-block;
+  padding: 20px;
+  background-color: rgb(177, 177, 177);
+}
+
+.sekce-uvod,
+.sekce-dotaznik {
+  margin: 20px;
+}
+
+.sekce-dotaznik input,
+.sekce-dotaznik select {
+  width: 30%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button{
+  padding: 10px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 20px;
+  border-collapse: collapse;
+  color: white;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  border-left: rgb(117, 117, 117);
+  border-right: rgb(117, 117, 117);
+}
+
+thead {
+  background-color: rgb(0, 45, 170);
+  font-size: 18px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 2px solid rgb(117, 117, 117);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(124, 124, 124);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(85, 85, 85);
+}
+
+.tabulka-sekce {
+  line-height: 1.6;
+  margin-left: var(--margin_left);
+  margin-right: var(--margin_right);
+  margin-top: var(--margin_top);
+  display: inline-block;
+  padding: var(--padding_text_section);
+  padding-top: var(--padding_text_section_top_down);
+  padding-bottom: var(--padding_text_section_top_down);
+}

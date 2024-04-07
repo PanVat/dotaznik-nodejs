@@ -1,56 +1,48 @@
 <!DOCTYPE html>
-<html lang="cz">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Výsledky</title>
-</head>
+  </head>
 
-<body>
-    <h1>Výsledky ankety!</h1>
-    <div class="container">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Datum</th>
-                <th>ČAS</th>
-                <th>Oblíbená hra</th>
-                <th>Hodiny denně</th>
-                <th>Zájem o videohry</th>
-                <th>Oblíbený žánr</th>
-                <th>Oblíbený protagonista</th>
-                <th>Oblíbený antagonista</th>
-            </tr>
-            <% responses.forEach(function(response){ const date=new Date(response.timestamp); const dateString=`${('0' +
-                date.getDate()).slice(-2)}.${('0' + (date.getMonth() + 1)).slice(-2)}.${date.getFullYear()}`; const
-                timeString=`${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' +
-                date.getSeconds()).slice(-2)}`; %>
-                <tr>
-                    <td>
-                        <%= response.answers.hours %>
-                    </td>
-                    <td>
-                        <%= response.answers['oblibena-hra'] %>
-                    </td>
-                    <td>
-                        <%= response.answers.zajem %>
-                    </td>
-                    <td>
-                        <%= response.answers.zanr %>
-                    </td>
-                    <td>
-                        <%= response.answers.protagonista %>
-                    </td>
-                    <td>
-                        <%= response.answers.antagonista %>
-                    </td>
-
-                </tr>
-                <% }); %>
-        </table>
+  <body>
+    <%- include('blocks/header'); -%>
+    <div class="tabulka-sekce">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Čas</th>
+            <th>Zájem o videohry</th>
+            <th>Hodiny denně</th>
+            <th>Oblíbený žánr</th>
+            <th>Oblíbená hra</th>
+            <th>Oblíbený protagonista</th>
+            <th>Oblíbený antagonista</th>
+          </tr>
+        </thead>
+        <% responses.forEach(function(response) { 
+            const date = new Date(response.timestamp); 
+            const dateString = `${('0' + date.getDate()).slice(-2)}.${('0' + (date.getMonth() +1)).slice(-2)}.${date.getFullYear()}`; 
+            const timeString = `${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+        %>
+        <tr>
+          <td><%= response.id %></td>
+          <td><%= dateString %></td>
+          <td><%= timeString %></td>
+          <td><%= response.answers.zajem %></td>
+          <td><%= response.answers.hours %></td>
+          <td><%= response.answers.zanr %></td>
+          <td><%= response.answers.oblibenaHra %></td>
+          <td><%= response.answers.protagonista %></td>
+          <td><%= response.answers.antagonista %></td>
+        </tr>
+        <% }); %>
+      </table>
     </div>
-</body>
-
+    <%- include('blocks/footer'); -%>
+  </body>
 </html>
